@@ -3,6 +3,12 @@
 
 This project implements an AI-powered recommendation engine for an e-commerce platform, providing personalized product recommendations based on user browsing and purchase history.
 
+## Dataset
+
+The dataset used in this project is the [Online Retail Transaction Data](https://www.kaggle.com/datasets/thedevastator/online-retail-transaction-data?resource=download) from Kaggle. 
+
+This data set provides an in-depth look at transactions, product details, and customer information documented by an online retail company based in the UK. The scope of the data spans vastly, from granular details about each product sold to extensive customer data sets from different countries.
+
 ## Requirements
 
 - Python 3.x
@@ -11,7 +17,7 @@ This project implements an AI-powered recommendation engine for an e-commerce pl
 - Scikit-learn
 - PyQt5
 
-## Setup
+## Setup and Run
 
 1. Clone the repository:
    ```bash
@@ -35,7 +41,7 @@ This project implements an AI-powered recommendation engine for an e-commerce pl
 
    **On Windows:**
    ```bash
-   venv\Scripts\activate
+   source venv\Scripts\activate
    ```
 
    **On macOS/Linux:**
@@ -48,23 +54,17 @@ This project implements an AI-powered recommendation engine for an e-commerce pl
    pip install -r requirements.txt
    ```
 
-5. Place your dataset in the `data/` directory:
+5. Place your dataset in the `data/` directory (Opensource Dataset provided with the project):
    ```plaintext
    recommendation_system/
    ├── data/
    │   └── dataset.csv
    ```
 
-## Dataset
+6. Run the `main.py` script to preprocess the dataset, train the model, and get recommendations.
 
-The dataset used in this project is the [Online Retail Transaction Data](https://www.kaggle.com/datasets/thedevastator/online-retail-transaction-data?resource=download) from Kaggle. 
+## Running the Recommendation Engine with GUI
 
-This data set provides an in-depth look at transactions, product details, and customer information documented by an online retail company based in the UK. The scope of the data spans vastly, from granular details about each product sold to extensive customer data sets from different countries.
-
-
-## Running the Recommendation Engine
-
-Before running, ensure that the setup steps are correctly done and Virtual Environment (venv) is activated.
 
 1. To preprocess the data, train the model, and get recommendations:
    ```bash

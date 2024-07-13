@@ -74,9 +74,6 @@ coverage.xml
 .dmypy.json
 dmypy.json
 
-# Data files
-data/dataset.csv
-
 # Logs
 *.log
 
