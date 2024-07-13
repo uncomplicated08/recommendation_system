@@ -19,12 +19,36 @@ This project implements an AI-powered recommendation engine for an e-commerce pl
    cd recommendation_system
    ```
 
-2. Install the required packages:
+2. Create a virtual environment:
+
+   **On Windows:**
+   ```bash
+   python -m venv venv
+   ```
+
+   **On macOS/Linux:**
+   ```bash
+   python3 -m venv venv
+   ```
+
+3. Activate the virtual environment:
+
+   **On Windows:**
+   ```bash
+   venv\Scripts\activate
+   ```
+
+   **On macOS/Linux:**
+   ```bash
+   source venv/bin/activate
+   ```
+
+4. Install the required packages:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Place your dataset in the `data/` directory:
+5. Place your dataset in the `data/` directory:
    ```plaintext
    recommendation_system/
    ├── data/
@@ -39,6 +63,8 @@ This data set provides an in-depth look at transactions, product details, and cu
 
 
 ## Running the Recommendation Engine
+
+Before running, ensure that the setup steps are correctly done and Virtual Environment (venv) is activated.
 
 1. To preprocess the data, train the model, and get recommendations:
    ```bash

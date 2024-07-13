@@ -1,5 +1,5 @@
 
-### Project Directory Structure
+### Project Directory Structure (Planning Phase)
 
 ```
 recommendation_system/
