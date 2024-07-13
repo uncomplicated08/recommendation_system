@@ -5,12 +5,9 @@ import os
 # Add the parent directory of recommendation_system to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLineEdit, QTextEdit, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLineEdit, QTextEdit, QVBoxLayout, QWidget, QComboBox
 from models.recommender import load_recommendation_system, get_recommendations
-from models.preprocess import load_and_preprocess_data, extract_unique_products
-
-
-import pandas as pd
+from models.preprocess import load_and_preprocess_data
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -23,10 +20,14 @@ class MainWindow(QMainWindow):
         # Setup the layout
         layout = QVBoxLayout()
 
-        # User ID input
-        self.user_input = QLineEdit(self)
-        self.user_input.setPlaceholderText("Enter user ID...")
-        layout.addWidget(self.user_input)
+        # User ID dropdown
+        self.user_dropdown = QComboBox(self)
+        # Create a mapping of user_id to CustomerID
+        user_customer_mapping = self.df[['user_id', 'CustomerID']].drop_duplicates()
+        user_customer_mapping['display'] = user_customer_mapping.apply(lambda x: f"CUSTOMER: {x['CustomerID']} (user_id: {x['user_id']})", axis=1)
+        for _, row in user_customer_mapping.iterrows():
+            self.user_dropdown.addItem(row['display'], row['user_id'])
+        layout.addWidget(self.user_dropdown)
 
         # Button to get recommendations
         self.button = QPushButton('Get Recommendations', self)
@@ -47,10 +48,12 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 400, 300)
 
     def display_recommendations(self):
-        user_id = int(self.user_input.text())
+        user_id = self.user_dropdown.currentData()
         recommendations = get_recommendations(self.model, self.user_item_matrix, user_id)
+        customer_id = self.df.loc[self.df['user_id'] == user_id, 'CustomerID'].values[0]
+
         self.text_edit.clear()
-        self.text_edit.append("Recommendations for user {}: \n".format(user_id))
+        self.text_edit.append(f"Recommendations for Customer ID {customer_id} (user_id: {user_id}): \n")
         for idx in recommendations:
             product = self.unique_products.loc[self.unique_products['product_id'] == idx, 'Description'].values[0]
             self.text_edit.append(product)
