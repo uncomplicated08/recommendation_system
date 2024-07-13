@@ -107,6 +107,15 @@ recommendation_system/
     └── helpers.py            # Helper functions that might be used across the project
 ```
 
+## Screenshots
+
+### python main.py
+![image](https://github.com/user-attachments/assets/eaee8f45-f290-47c3-a2c5-eccabf51f873)
+
+### python gui/main_window.py
+![image](https://github.com/user-attachments/assets/f904e43b-02e8-429e-92aa-10df3655189b)
+
+
 ## Contributing
 
 Feel free to submit issues or pull requests if you have any suggestions or improvements.
