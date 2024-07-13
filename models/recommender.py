@@ -29,13 +29,13 @@ def get_recommendations(model, user_item_matrix, user_id: int, n_recommendations
     
     return recommended_item_indices
 
-def save_model(model, filename='models/model.pkl'):
-    """Save the trained model to a file."""
+def save_recommendation_system(model, user_item_matrix, unique_products, filename='models/model.pkl'):
+    """Save the trained model, user-item matrix, and unique products to a file."""
     with open(filename, 'wb') as f:
-        pickle.dump(model, f)
+        pickle.dump({'model': model, 'user_item_matrix': user_item_matrix, 'unique_products': unique_products}, f)
 
-def load_model(filename='models/model.pkl'):
-    """Load a trained model from a file."""
+def load_recommendation_system(filename='models/model.pkl'):
+    """Load a trained model, user-item matrix, and unique products from a file."""
     with open(filename, 'rb') as f:
-        model = pickle.load(f)
-    return model
+        data = pickle.load(f)
+    return data['model'], data['user_item_matrix'], data['unique_products']
