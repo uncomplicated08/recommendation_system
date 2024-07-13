@@ -1,7 +1,7 @@
 
 ### Understanding the Dataset
 
-You have a dataset that includes information about transactions, where each row represents a purchase made by a customer. Here’s a snippet of what your dataset looks like:
+We have a dataset that includes information about transactions, where each row represents a purchase made by a customer. Here’s a snippet of what the dataset looks like:
 
 ```
 index,InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
@@ -13,12 +13,12 @@ index,InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,
 ### Recommendation Algorithm
 
 1. **Data Preparation**: 
-   - Each row in your dataset represents a transaction where a customer (identified by `CustomerID`) bought a specific item (`StockCode`).
+   - Each row in our dataset represents a transaction where a customer (identified by `CustomerID`) bought a specific item (`StockCode`).
    - We'll use this historical data to predict items that a customer might be interested in based on their past behavior.
 
 2. **User-Item Matrix**:
    - To recommend items, we first create a matrix where each row represents a unique customer (`CustomerID`) and each column represents a unique item (`StockCode`).
-   - The values in this matrix typically represent some form of interaction or preference (e.g., number of times purchased, ratings, etc.). In your case, we could use the quantity purchased as a proxy for interaction.
+   - The values in this matrix typically represent some form of interaction or preference (e.g., number of times purchased, ratings, etc.). In our case, we could use the quantity purchased as a proxy for interaction.
 
 3. **Algorithm Choice - Collaborative Filtering**:
    - One popular approach is **collaborative filtering**. This method predicts what a user might like based on the preferences of similar users.
@@ -30,8 +30,8 @@ index,InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,
      - **Nearest Neighbor**: This approach finds users similar to the target user based on past behavior and recommends items that similar users have liked.
 
 5. **Output**:
-   - Once the model is trained and recommendations are generated, you get a list of recommended items for each user.
-   - In your case, the output might look like this:
+   - Once the model is trained and recommendations are generated, we get a list of recommended items for each user.
+   - In our case, the output might look like this:
 
      ```
      Recommendations for user 0:

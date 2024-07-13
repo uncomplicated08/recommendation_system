@@ -1,9 +1,54 @@
 
-# E-commerce Recommendation Engine
+# Recommendation System
 
-## Overview
+This project implements an AI-powered recommendation engine for an e-commerce platform, providing personalized product recommendations based on user browsing and purchase history.
 
-This project is a simple yet effective recommendation engine designed for an e-commerce platform. It uses collaborative filtering to provide personalized product recommendations to users based on their browsing and purchase history.
+## Requirements
+
+- Python 3.x
+- Pandas
+- NumPy
+- Scikit-learn
+- PyQt5
+
+## Setup
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd recommendation_system
+   ```
+
+2. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Place your dataset in the `data/` directory:
+   ```plaintext
+   recommendation_system/
+   ├── data/
+   │   └── dataset.csv
+   ```
+
+## Dataset
+
+The dataset used in this project is the [Online Retail Transaction Data](https://www.kaggle.com/datasets/thedevastator/online-retail-transaction-data?resource=download) from Kaggle. 
+
+This data set provides an in-depth look at transactions, product details, and customer information documented by an online retail company based in the UK. The scope of the data spans vastly, from granular details about each product sold to extensive customer data sets from different countries.
+
+
+## Running the Recommendation Engine
+
+1. To preprocess the data, train the model, and get recommendations:
+   ```bash
+   python main.py
+   ```
+
+2. To run the GUI for interactive recommendations:
+   ```bash
+   python gui/main_window.py
+   ```
 
 ## Project Structure
 
@@ -36,88 +81,6 @@ recommendation_system/
     └── helpers.py            # Helper functions that might be used across the project
 ```
 
-## Setup Instructions
-
-### Prerequisites
-
-- Python 3.11.5 or higher
-- Pip (Python package installer)
-### Installation
-
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/your-username/recommendation_system.git
-   cd recommendation_system
-   ```
-
-2. **Create a Virtual Environment**:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
-   ```
-
-3. **Install Dependencies**:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Prepare the Dataset**:
-   
-   Place your dataset file (`dataset.csv`) into the `data/` directory. Ensure it has the necessary columns like `user_id`, `product_id`, and `rating`.
-
-
-### Additional Setup for Windows Users
-
-If you encounter an error while installing the `surprise` package, you may need to install Microsoft Visual C++ 14.0 or greater. Follow these steps:
-
-1. **Download and Install Microsoft C++ Build Tools**:
-
-   - Go to the [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) page.
-   - Download the installer and run it.
-   - During installation, select the "Development with C++" workload.
-
-2. **Retry Installing the `surprise` Package**:
-
-   ```bash
-   pip install surprise
-   ```
-
-### Running the Project
-
-1. **Train and Save the Recommendation Model**:
-
-   Run the main script to preprocess the data, train the recommendation model, and save it.
-
-   ```bash
-   python main.py
-   ```
-
-   This will output the trained model and print the RMSE (Root Mean Square Error) of the model on the test dataset.
-
-### Project Components
-
-- **Data Preprocessing**: The `models/preprocess.py` script handles data loading and cleaning.
-- **Model Training**: The `models/recommender.py` script builds and trains the recommendation model.
-- **Services**: The `services/` directory contains scripts for handling data operations and interacting with the recommendation model.
-
-### Future Work
-
-- **GUI Development**: Build a graphical user interface to interact with the recommendation engine.
-- **Model Optimization**: Explore and implement more advanced recommendation algorithms.
-- **Scalability Improvements**: Optimize the system to handle larger datasets and more users.
-
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- Dataset provided by Dr. Daqing Chen, Director of the Public Analytics group at London South Bank University.
-- [Surprise Library](https://surprise.readthedocs.io/) for building recommendation systems in Python.
+Feel free to submit issues or pull requests if you have any suggestions or improvements.
