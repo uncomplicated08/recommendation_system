@@ -41,7 +41,7 @@ This data set provides an in-depth look at transactions, product details, and cu
 
    **On Windows:**
    ```bash
-   source venv\Scripts\activate
+   source venv/Scripts/activate
    ```
 
    **On macOS/Linux:**
